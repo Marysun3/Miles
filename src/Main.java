@@ -2,9 +2,17 @@ import java.sql.SQLOutput;
 
 public class Main {
     public static void main(String[] args) {
-        int ticket = 505;   // стоимость билета
-        int bonus = 20;      // колличество рублей для 1 милл
-        int miles = ticket / bonus;     // колличество миль начисленных за покупку билета
-        System.out.println(miles);
+        BonusMilesService service=new BonusMilesService();
+        System.out.println("Покупка на сумму 500");
+        int miles=service.calculate(500);     // колличество миль начисленных за покупку билета
+        System.out.println("Начислено миль:" +miles);
+
+        System.out.println();
+        System.out.println("Покупка на сумму 2000");
+        System.out.println("Начислено миль:" + service.calculate(2000));
+
+        System.out.println();
+        System.out.println("Покупка на сумму 1");
+        System.out.println("Начислено миль:" + service.calculate(1));
     }
 }
